@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}About - {{ personal_info.name }}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl font-bold mb-6 animate-fade-in">About Me</h1>
+            <p class="text-xl opacity-90 animate-slide-up">
+                {{ personal_info.summary }}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Personal Information -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">My Journey</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            I am {{ personal_info.name }}, a passionate Computer Science Engineer with a strong foundation in data analysis and visualization. My journey began at Lovely Professional University, where I developed expertise in programming languages like C/C++, Java, and R.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Through hands-on projects and continuous learning, I've specialized in creating data-driven solutions using Tableau, R programming, and statistical analysis. My work focuses on transforming complex data into actionable insights that drive business decisions.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
+                                <span class="font-semibold text-gray-900">Location</span>
+                            </div>
+                            <p class="text-gray-700">{{ personal_info.location }}</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-graduation-cap text-green-600 mr-2"></i>
+                                <span class="font-semibold text-gray-900">Education</span>
+                            </div>
+                            <p class="text-gray-700">B.Tech CSE</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-br from-blue-600 to-purple-600 text-white p-8 rounded-lg">
+                        <h3 class="text-2xl font-semibold mb-4">Quick Facts</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-bar mr-3"></i>
+                                <span>Data Analysis Expert</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-trophy mr-3"></i>
+                                <span>5+ Professional Certificates</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-project-diagram mr-3"></i>
+                                <span>2+ Major Projects Completed</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tools mr-3"></i>
+                                <span>Tableau & R Programming</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Timeline -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Educational Background</h2>
+                <p class="text-xl text-gray-600">My academic journey and achievements</p>
+            </div>
+            
+            <div class="space-y-8">
+                {% for edu in education %}
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900">{{ edu.degree }}</h3>
+                                <p class="text-blue-600 font-medium">{{ edu.institution }}</p>
+                                <p class="text-gray-600">{{ edu.location }}</p>
+                            </div>
+                            <div class="text-right mt-2 md:mt-0">
+                                <p class="text-gray-600">{{ edu.duration }}</p>
+                                <p class="font-semibold text-green-600">{{ edu.grade }}</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">{{ edu.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interests Section -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Areas of Interest</h2>
+                <p class="text-xl text-gray-600">What drives my passion for technology</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                {% for interest in personal_info.interests %}
+                <div class="text-center p-6 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        {% if interest == "Data Analysis" %}
+                            <i class="fas fa-chart-bar text-2xl text-blue-600"></i>
+                        {% elif interest == "Machine Learning" %}
+                            <i class="fas fa-brain text-2xl text-blue-600"></i>
+                        {% elif interest == "Data Visualization" %}
+                            <i class="fas fa-chart-pie text-2xl text-blue-600"></i>
+                        {% elif interest == "Dashboard Development" %}
+                            <i class="fas fa-tachometer-alt text-2xl text-blue-600"></i>
+                        {% elif interest == "Statistical Analysis" %}
+                            <i class="fas fa-calculator text-2xl text-blue-600"></i>
+                        {% else %}
+                            <i class="fas fa-mobile-alt text-2xl text-blue-600"></i>
+                        {% endif %}
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">{{ interest }}</h3>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

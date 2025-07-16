@@ -1,0 +1,34 @@
+{
+  "education": [
+    {
+      "id": 1,
+      "institution": "Lovely Professional University",
+      "location": "Jalandhar, Punjab",
+      "degree": "Computer Science and Engineering",
+      "duration": "2020 – 2024",
+      "grade": "CGPA: 7.00",
+      "type": "bachelor",
+      "description": "Comprehensive computer science program covering software development, data structures, algorithms, and emerging technologies."
+    },
+    {
+      "id": 2,
+      "institution": "LP Shahi College",
+      "location": "Muzaffarpur, Bihar",
+      "degree": "Intermediate",
+      "duration": "2020-2022",
+      "grade": "Percentage: 72.6%",
+      "type": "intermediate",
+      "description": "Higher secondary education with focus on science and mathematics."
+    },
+    {
+      "id": 3,
+      "institution": "Aanad Prep Public School",
+      "location": "Muzaffarpur, Bihar",
+      "degree": "Matriculation",
+      "duration": "2019 – 2020",
+      "grade": "Percentage: 83.4%",
+      "type": "matriculation",
+      "description": "Secondary education with strong academic performance."
+    }
+  ]
+}
