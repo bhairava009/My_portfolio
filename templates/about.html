@@ -11,6 +11,13 @@
             <p class="text-xl opacity-90 animate-slide-up">
                 {{ personal_info.summary }}
             </p>
+            <a href="{{ url_for('static', filename='files/resume.pdf') }}" 
+   download="Sonu_Kumar_Resume.pdf"
+   class="btn btn-primary download-btn mt-6 inline-block"
+   id="downloadResumeBtn">
+  <i class="fas fa-file-download mr-2"></i>
+             Download Resume
+</a>
         </div>
     </div>
 </section>
