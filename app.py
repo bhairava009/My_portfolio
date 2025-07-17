@@ -33,9 +33,10 @@ def index():
 @app.route('/about')
 def about():
     """About page with personal information"""
-    personal_info = load_json_data('personal_info.json')
-    education = load_json_data('education.json')
-    return render_template('about.html', personal_info=personal_info, education=education)
+    education_data = load_json_data('education.json')
+    education = education_data.get('education', [])
+    return render_template('about.html', education=education)
+
 
 skills_data = {
     "technical_skills": {
@@ -52,7 +53,8 @@ def skills():
 
 @app.context_processor
 def inject_personal_info():
-    return {'personal_info': {'name': 'Sonu Kumar'}}
+    personal_info = load_json_data('personal_info.json')
+    return {'personal_info': personal_info}
 
 @app.route('/projects')
 def projects():
@@ -62,9 +64,10 @@ def projects():
 
 @app.route('/certificates')
 def experience():
-    """Experience and certificates page"""
-    certificates = load_json_data('certificates.json')
+    certificates_data = load_json_data('certificates.json')
+    certificates = certificates_data.get('certificates', [])  # Extract list
     return render_template('certificates.html', certificates=certificates)
+
 
 @app.route('/blog')
 def blog():
