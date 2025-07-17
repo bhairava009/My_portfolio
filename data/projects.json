@@ -17,8 +17,8 @@
       "technologies": ["Tableau", "SQL", "Excel", "Data Visualization"],
       "category": "data-analysis",
       "image": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "demo_url": "#",
-      "github_url": "https://github.com/bhairava009",
+      "demo_link": "https://public.tableau.com/app/profile/sonu.kumar",
+      "github_url": "https://github.com/bhairava009/Customer-analysis-",
       "status": "completed"
     },
     {
@@ -39,8 +39,8 @@
       "technologies": ["R", "RStudio", "tidyverse", "sets", "Mobile App Development", "Statistical Analysis"],
       "category": "mobile-development",
       "image": "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "demo_url": "#",
-      "github_url": "https://github.com/bhairava009",
+       "demo_link": "https://github.com/bhairava009/lottery-addiction-analysis",
+      "github_url": "https://github.com/bhairava009/lottery-addiction-app",
       "status": "completed"
     }
   ],
